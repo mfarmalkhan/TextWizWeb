@@ -69,7 +69,7 @@
     
       <div class="column" style="background-color:#ddd; height: 500px; overflow:scroll;">
         <h3 align = "center">Word Frequency Table</h3><br>
-          {{table.to_html(classes = 'table table-hover', justify = 'center', index_names = False) | safe}}
+          {{table.to_html(classes = 'table table-hover', justify = 'justify-all', index_names = False) | safe}}
       </div>
 
       <div class="column" style="background-color:#eee; height: 500px">
@@ -80,25 +80,29 @@
   </div>
 
   <div class="row">
-    <div class="column" style="background-color:#ddd; height: 300px; width: 33%;">
-      <h2  align = "center">Key Statistics</h2><br>
-      <p>Total Count of: </p>
+    <div class="column" style="background-color:#ddd; height: 400px; width: 50%;">
+      <h2  align = "center">Document Statistics</h2><br>
+      <p>Total Words: <b>{{word_count}}</b> </p>
+      <p>Total Sentences: <b>{{sent_count}}</b> </p>
+      
+      <p><b>POS tags:</b> </p>
       <ul>
-        <li>Words: <b>500</b></li>
-        <li>Characters: <b>500</b></li>
-        <li>Nouns: <b>500</b></li>
-        <li>Verbs: <b>100</b></li>
-        <li>Adjectives: <b>200</b></li>
-        <li>Entities: <b>334</b></li>
+        <li>Number of Nouns: <b>{{nouns}}</b></li>
+        <li>Number of Verbs: <b>{{verbs}}</b></li>
+        <li>Number of Adjectives: <b>{{adj}}</b></li>
       </ul>
+
+      <p>Document Overall Tone:<b> POSITIVE (0.80)</b> </p>
+      <p>Document Language:<b> English</b> </p>
+
     </div>
 
-    <div class="column" style="background-color:#eee; height: 300px; overflow:scroll; width: 34%;">
+    <div class="column" style="background-color:#eee; height: 400px; overflow:scroll; width: 50%;">
       <h2 align = "center">Document Summary</h2>
       <p style="white-space: pre-line;">{{summ}}</p>
     </div>
 
-    <div class="column" style="background-color:#ddd; height: 300px; width: 33%;">
+    <!-- <div class="column" style="background-color:#ddd; height: 300px; width: 33%;">
       <h2  align = "center">Part of Speech Tags</h2><br>
       <p>Most used: </p>
       <ul>
@@ -107,7 +111,7 @@
         <li>Adjectives: <b></b></li>
         <li>Entities: <b></b></li>
       </ul>
-    </div>
+    </div> -->
     
   
   </div>

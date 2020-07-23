@@ -33,8 +33,15 @@ def createDashboard():
     # generate summary with default options
     summ = generate_summary(formText)
 
+    # pos tagging
+    nouns, verbs, adj = pos_tags(formText)
+
+    word_count, sent_count = word_and_sent_count(formText)
+
     return render_template('dashboard.html',text = formText, wc = wc_byte, table = table, 
-                            bar_chart = bar_chart, summ = summ)
+                            bar_chart = bar_chart, summ = summ,
+                            nouns = nouns, verbs = verbs, adj = adj,
+                            word_count = word_count, sent_count = sent_count)
 
 if __name__ == "__main__":
     app.run(debug=True)

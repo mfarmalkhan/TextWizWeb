@@ -1,7 +1,6 @@
 
 import nltk
-nltk.download('stopwords')
-
+# nltk.download('stopwords')
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -16,6 +15,9 @@ import pandas as pd
 from nltk.corpus import stopwords
 from gensim.summarization.summarizer import summarize 
 from gensim.summarization import keywords 
+from nltk.stem.wordnet import WordNetLemmatizer
+from nltk.tokenize import sent_tokenize
+
 
 def create_word_cloud(string):
 
@@ -47,6 +49,10 @@ def clean_text(string):
     words = [each_string.lower() for each_string in words]
     stop_words = set(stopwords.words('english'))
     words = [w for w in words if not w in stop_words]
+
+    lem = WordNetLemmatizer()
+    lemmatized_output = ' '.join([lem.lemmatize(w) for w in words])
+    words = word_tokenize(lemmatized_output)
     return words
 
 def word_freq_table(string):
@@ -84,5 +90,30 @@ def word_freq_bar(string):
 def generate_summary(string):
     return summarize(string)
 
-def pos_tags(strings):
-    pass
+def pos_tags(string):
+    df = word_freq_table(string)
+    tags = nltk.pos_tag(df['Word'])
+    
+    noun_count = 0
+    verb_count = 0
+    adj_count = 0
+
+    for word,tag in tags:
+        
+        df['POS tags'] = tag
+
+        if tag == "NN" or tag == 'NNS':
+            noun_count += 1
+        elif tag == "VB" or tag == 'VBD':
+            verb_count += 1
+        elif tag == "JJ" or tag == 'JJR' or tag == 'JJS':
+            adj_count += 1
+    
+    return noun_count, verb_count, adj_count
+
+def word_and_sent_count(string):
+    
+   word_count = len(word_tokenize(string))
+   sent_count = len(sent_tokenize(string))
+
+   return word_count, sent_count
