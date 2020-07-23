@@ -1,3 +1,7 @@
+
+import nltk
+nltk.download('stopwords')
+
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -7,8 +11,6 @@ from PIL import Image
 import io
 import urllib, base64
 import collections
-import nltk
-nlkt.download()
 from nltk.tokenize import word_tokenize
 import pandas as pd
 from nltk.corpus import stopwords
