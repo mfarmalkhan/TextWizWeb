@@ -1,5 +1,5 @@
 import nltk
-# nltk.download('stopwords')
+nltk.download('stopwords')
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
