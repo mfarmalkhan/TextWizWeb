@@ -1,6 +1,5 @@
-
 import nltk
-nltk.download('stopwords')
+# nltk.download('stopwords')
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -17,7 +16,7 @@ from gensim.summarization.summarizer import summarize
 from gensim.summarization import keywords 
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.tokenize import sent_tokenize
-nltk.download('averaged_perceptron_tagger')
+# nltk.download('averaged_perceptron_tagger')
 
 def create_word_cloud(string):
 
