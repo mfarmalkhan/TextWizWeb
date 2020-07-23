@@ -11,5 +11,4 @@ numpy
 nltk
 wordcloud
 Pillow
-collections
 gensim
