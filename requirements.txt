@@ -10,6 +10,6 @@ matplotlib
 numpy
 nltk
 wordcloud
-PIL
+Pillow
 collections
 gensim
