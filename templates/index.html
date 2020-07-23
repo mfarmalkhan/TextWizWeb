@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+<div class="jumbotron text-center">
+    <h1><img src="{{url_for('static', filename='TextWizLogo.png')}}" height="100px" width="120px" /></h1>
+    <p class="lead"> Give Value to Your Words</p>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <form action="/dashboard" method="POST">
+                Enter text here: <br>
+                <textarea name="text" class="bigtextarea" rows="4" cols="90" style="white-space: pre-line;"></textarea> <br><br>
+                <!-- or upload file:   <input type="file" id="myFile" name="filename"><br><br> -->
+                <input type="submit" value="Create Dashboard">
+              </form>
+        </div>
+    <div class="col-sm-4">
+           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="collapse" data-target="#demo">About</button>
+                <div id="demo" class="collapse">
+                    This tools allows you to analyze your text by generating key insights and statistics through a dashboard.<br>
+                    Want more features? Check out our desktop app: <br>
+                    <a href="https://mfarmalkhan.github.io/TextWiz_Website/">TextWiz Desktop Application</a>
+                </div>
+       
+</div>
+</div>
+</div>
+
+{% endblock %}

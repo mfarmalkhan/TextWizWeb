@@ -1,0 +1,15 @@
+Click
+Flask
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+pandas
+matplotlib
+numpy
+nltk
+wordcloud
+PIL
+collections
+gensim

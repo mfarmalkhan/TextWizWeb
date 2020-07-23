@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<style>
+  /* Create two equal columns that floats next to each other */
+  
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#img-container {
+      text-align: center;
+}
+</style>
+
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+  <!-- <span class="navbar-brand mb-0 h1">Navbar</span> -->
+    <span class="navbar-brand mb-0 h2">Your dashboard is ready!</span>
+    <img class="navbar-brand mb-0 h1" src="{{url_for('static', filename='TextWizLogo.png')}}" height="100px" width="100px" />
+</nav>
+
+<!-- <div>
+  <h1><img src="{{url_for('static', filename='TextWizLogo.png')}}" height="80px" width="100px" /></h1>
+</div> -->
+<!-- <br><br> -->
+
+<div style="margin-left:50px; margin-right: 50px;">
+
+  <div class="row">
+  
+    <div class="column" style="overflow:scroll; background-color:#bbb;  height:300px; width: 50%;">
+    <h2>Preview Text</h2>
+    <p value ="{{text}}" style="white-space: pre-line;">{{text}}</p>
+    </div>
+
+    <div id= "img-container"class="column" style="background-color:#bbb; height: 300px; width: 50%;">
+    <h2>Word Cloud</h2>
+    <!-- <p>{{wc}}</p> -->
+    <img src="data:image/png;base64, {{wc}}" height="230px", width="280px" text-align = "center"/>
+    </div>
+  
+  </div>
+
+  <div class="row">
+    <!-- <div class="column" style="background-color:#ccc; width: 100%; height: 500px;"> -->
+      <!-- <h2 align = "center">Word Frequency Distribution</h2> -->
+    
+      <div class="column" style="background-color:#ddd; height: 500px; overflow:scroll;">
+        <h3 align = "center">Word Frequency Table</h3><br>
+          {{table.to_html(classes = 'table table-hover', justify = 'center', index_names = False) | safe}}
+      </div>
+
+      <div class="column" style="background-color:#eee; height: 500px">
+        <h3 align = "center">Top 10 Words</h3>
+        <img src="data:image/png;base64, {{bar_chart}}" class="center" style=" width: 80%; height: 80%;"/>
+      </div>
+    <!-- </div> -->
+  </div>
+
+  <div class="row">
+    <div class="column" style="background-color:#ddd; height: 300px; width: 33%;">
+      <h2  align = "center">Key Statistics</h2><br>
+      <p>Total Count of: </p>
+      <ul>
+        <li>Words: <b>500</b></li>
+        <li>Characters: <b>500</b></li>
+        <li>Nouns: <b>500</b></li>
+        <li>Verbs: <b>100</b></li>
+        <li>Adjectives: <b>200</b></li>
+        <li>Entities: <b>334</b></li>
+      </ul>
+    </div>
+
+    <div class="column" style="background-color:#eee; height: 300px; overflow:scroll; width: 34%;">
+      <h2 align = "center">Document Summary</h2>
+      <p style="white-space: pre-line;">{{summ}}</p>
+    </div>
+
+    <div class="column" style="background-color:#ddd; height: 300px; width: 33%;">
+      <h2  align = "center">Part of Speech Tags</h2><br>
+      <p>Most used: </p>
+      <ul>
+        <li>Nouns: <b></b></li>
+        <li>Verbs: <b></b></li>
+        <li>Adjectives: <b></b></li>
+        <li>Entities: <b></b></li>
+      </ul>
+    </div>
+    
+  
+  </div>
+</div>
+{% endblock %}
