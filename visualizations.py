@@ -1,5 +1,4 @@
 import nltk
-
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -17,7 +16,7 @@ from gensim.summarization import keywords
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.tokenize import sent_tokenize
 
-# nltk.download('averaged_perceptron_tagger')
+nltk.download('averaged_perceptron_tagger')
 nltk.download('stopwords')
 nltk.download('punkt')
 
