@@ -17,7 +17,7 @@ from gensim.summarization.summarizer import summarize
 from gensim.summarization import keywords 
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.tokenize import sent_tokenize
-
+nltk.download('averaged_perceptron_tagger')
 
 def create_word_cloud(string):
 
