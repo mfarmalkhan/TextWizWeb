@@ -30,7 +30,7 @@ def create_word_cloud(string):
     plt.imshow(wc, interpolation='bilinear')
     # plt.clf()
     plt.axis("off")
-    plt.savefig('static/wordCloud.png', format = 'png')
+    # plt.savefig('static/wordCloud.png', format = 'png')
 
     image = io.BytesIO()
     plt.savefig(image, format='png')
@@ -89,8 +89,11 @@ def word_freq_bar(string):
     return image_string
 
 def generate_summary(string):
-    return summarize(string)
-
+    try:
+        return summarize(string)
+    except:
+        return "Sorry, cannot generate summary of this text :("
+        
 def pos_tags(string):
     df = word_freq_table(string)
     tags = nltk.pos_tag(df['Word'])
