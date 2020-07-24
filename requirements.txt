@@ -12,3 +12,5 @@ nltk
 wordcloud
 Pillow
 gensim
+textblob
+pycountry
