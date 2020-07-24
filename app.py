@@ -38,10 +38,15 @@ def createDashboard():
 
     word_count, sent_count = word_and_sent_count(formText)
 
+    tone, context = tone_and_context(formText)
+
+    language = lang_detection(formText)
+
     return render_template('dashboard.html',text = formText, wc = wc_byte, table = table, 
                             bar_chart = bar_chart, summ = summ,
                             nouns = nouns, verbs = verbs, adj = adj,
-                            word_count = word_count, sent_count = sent_count)
+                            word_count = word_count, sent_count = sent_count,
+                            tone = tone, context = context, language = language)
 
 if __name__ == "__main__":
     app.run(debug=True)

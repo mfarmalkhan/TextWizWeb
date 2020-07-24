@@ -15,6 +15,8 @@ from gensim.summarization.summarizer import summarize
 from gensim.summarization import keywords 
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.tokenize import sent_tokenize
+from textblob import TextBlob
+import pycountry
 
 nltk.download('averaged_perceptron_tagger')
 nltk.download('stopwords')
@@ -121,3 +123,43 @@ def word_and_sent_count(string):
    sent_count = len(sent_tokenize(string))
 
    return word_count, sent_count
+
+def lang_detection(string):
+
+    try: 
+        blob = TextBlob(string)
+        iso_code = blob.detect_language()
+        language = pycountry.languages.get(alpha_2=iso_code)
+        language_name = language.name
+        return language_name
+    except:
+        return "Language not detected"
+
+def tone_and_context(string):
+    
+    tone = ''
+    context = ''
+
+    try:
+        blob = TextBlob(string)
+
+        if blob.sentiment.polarity > 0.5:
+            tone = 'Positive'
+        elif blob.sentiment.polarity < -0.5:
+            tone = 'Negative'
+        else:
+            tone = 'Neutral'
+
+        if blob.sentiment.polarity >= 0.5:
+            context = 'Opinion (subjective)'
+        elif blob.sentiment.polarity < 0.5:
+            context = 'Factual Information (objective)'
+    
+    except:
+        tone = 'Cannot determine tone'
+        context = 'Cannot determine context'
+
+    return tone,context
+
+#  lang_detection('Hello its me.')
+print(tone_and_context('I think this is a bad apple'))
