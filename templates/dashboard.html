@@ -50,37 +50,18 @@
 
   <div class="row">
   
-    <div class="column" style="overflow:scroll; background-color:#bbb;  height:300px; width: 50%;">
+    <div class="column" style="overflow:scroll; background-color:#bbb;  height:400px; width: 33%;">
     <h2>Preview Text</h2>
     <p value ="{{text}}" style="white-space: pre-line;">{{text}}</p>
     </div>
 
-    <div id= "img-container"class="column" style="background-color:#bbb; height: 300px; width: 50%;">
+    <div id= "img-container"class="column" style="background-color:#ccc; height: 400px; width: 34%;">
     <h2>Word Cloud</h2>
     <!-- <p>{{wc}}</p> -->
-    <img src="data:image/png;base64, {{wc}}" height="230px", width="280px" text-align = "center"/>
+    <img src="data:image/png;base64, {{wc}}" height="300px", width="300px" text-align = "center"/>
     </div>
-  
-  </div>
 
-  <div class="row">
-    <!-- <div class="column" style="background-color:#ccc; width: 100%; height: 500px;"> -->
-      <!-- <h2 align = "center">Word Frequency Distribution</h2> -->
-    
-      <div class="column" style="background-color:#ddd; height: 500px; overflow:scroll;">
-        <h3 align = "center">Word Frequency Table</h3><br>
-          {{table.to_html(classes = 'table table-hover', justify = 'justify-all', index_names = False) | safe}}
-      </div>
-
-      <div class="column" style="background-color:#eee; height: 500px">
-        <h3 align = "center">Top 10 Words</h3>
-        <img src="data:image/png;base64, {{bar_chart}}" class="center" style=" width: 80%; height: 80%;"/>
-      </div>
-    <!-- </div> -->
-  </div>
-
-  <div class="row">
-    <div class="column" style="background-color:#ddd; height: 400px; width: 50%;">
+    <div class="column" style="background-color:#bbb; height: 400px; width: 33%;">
       <h2  align = "center">Document Statistics</h2><br>
       <p>Total Words: <b>{{word_count}}</b> </p>
       <p>Total Sentences: <b>{{sent_count}}</b> </p>
@@ -97,8 +78,45 @@
       <p>Document Language:<b> {{language}}</b> </p>
 
     </div>
+  
+  </div>
 
-    <div class="column" style="background-color:#eee; height: 400px; overflow:scroll; width: 50%;">
+  <div class="row">
+    <!-- <div class="column" style="background-color:#ccc; width: 100%; height: 500px;"> -->
+      <!-- <h2 align = "center">Word Frequency Distribution</h2> -->
+    
+      <div class="column" style="background-color:#ddd; height: 500px; overflow:scroll;">
+        <h3 align = "center">Word Frequency Table</h3><br>
+          {{table.to_html(classes = 'table table-hover', justify = 'justify-all', index_names = False) | safe}}
+      </div>
+
+      <div class="column" style="background-color:#ddd; height: 500px">
+        <h3 align = "center">Top 10 Words</h3>
+        <img src="data:image/png;base64, {{bar_chart}}" class="center" style=" width: 80%; height: 80%;"/>
+      </div>
+    <!-- </div> -->
+  </div>
+
+  <div class="row">
+    <!-- <div class="column" style="background-color:#ddd; height: 400px; width: 50%;">
+      <h2  align = "center">Document Statistics</h2><br>
+      <p>Total Words: <b>{{word_count}}</b> </p>
+      <p>Total Sentences: <b>{{sent_count}}</b> </p>
+      
+      <p><b>POS tags:</b> </p>
+      <ul>
+        <li>Number of Nouns: <b>{{nouns}}</b></li>
+        <li>Number of Verbs: <b>{{verbs}}</b></li>
+        <li>Number of Adjectives: <b>{{adj}}</b></li>
+      </ul>
+
+      <p>Document Overall Tone:<b> {{tone}}</b> </p>
+      <p>Document Context:<b> {{context}}</b> </p>
+      <p>Document Language:<b> {{language}}</b> </p>
+
+    </div> -->
+
+    <div class="column" style="background-color:#eee; height: 400px; overflow:scroll; width: 100%;">
       <h2 align = "center">Document Summary</h2>
       <p style="white-space: pre-line;">{{summ}}</p>
     </div>
@@ -117,4 +135,14 @@
   
   </div>
 </div>
+
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright: FAAR CO.  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 {% endblock %}

@@ -3,8 +3,8 @@
 {% block body %}
 
 
-<div class="jumbotron text-center">
-    <h1><img src="{{url_for('static', filename='TextWizLogo.png')}}" height="100px" width="120px" /></h1>
+<div class="jumbotron text-center" style="height: 200px;">
+    <h1><img src="{{url_for('static', filename='TextWizLogo.png')}}" height="80px" width="100px" /></h1>
     <p class="lead"> Give Value to Your Words</p>
 </div>
 
@@ -13,21 +13,38 @@
         <div class="col-sm-8">
             <form action="/dashboard" method="POST">
                 Enter text here: <br>
-                <textarea minlength="100" maxlength="10000" name="text" class="bigtextarea" rows="4" cols="90" style="white-space: pre-line;" required></textarea> <br><br>
+                <textarea minlength="100" maxlength="10000" name="text" class="bigtextarea" rows="8" cols="100" style="white-space: pre-line;" required></textarea>  
+                <label>Note: <b>Text must be between 100 to 10,000 characters</b></label><br><br>
                 <!-- or upload file:   <input type="file" id="myFile" name="filename"><br><br> -->
-                <input type="submit" value="Create Dashboard">
+                <input class="btn btn-primary" type="submit" value="Create Dashboard">
               </form>
         </div>
     <div class="col-sm-4">
-           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="collapse" data-target="#demo">About</button>
+           <button type="button" class="btn btn-info dropdown-toggle" data-toggle="collapse" data-target="#demo">About</button>
                 <div id="demo" class="collapse">
                     This tools allows you to analyze your text by generating key insights and statistics through a dashboard.<br>
                     Want more features? Check out our desktop app: <br>
-                    <a href="https://mfarmalkhan.github.io/TextWiz_Website/">TextWiz Desktop Application</a>
+
+                    <a href="https://mfarmalkhan.github.io/TextWiz_Website/" target="_blank">TextWiz Desktop Application</a><br><br>
+                    <p>Developer: Muhammad Farmal Khan
+                    <a href="https://github.com/mfarmalkhan" target="_blank" class="fa fa-linkedin"></a>
+                    <a href="https://linkedin.com/in/muhammad-farmal-khan-a953b417b/" target="_blank" class="fa fa-github"></a>
+                    </p>
                 </div>
        
 </div>
 </div>
 </div>
+
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright: FAAR CO.
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
 
 {% endblock %}

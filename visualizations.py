@@ -162,4 +162,4 @@ def tone_and_context(string):
     return tone,context
 
 #  lang_detection('Hello its me.')
-print(tone_and_context('I think this is a bad apple'))
+# print(tone_and_context('I think this is a bad apple'))
